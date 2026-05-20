@@ -1,5 +1,6 @@
 package com.example.ecomerce_spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -35,8 +36,9 @@ public class Order {
     @Column(name = "total_price",nullable = false)
     private BigDecimal totalPrice;
 
-    @OneToMany(mappedBy = "order")
-    private List<orderItem> orderItems;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

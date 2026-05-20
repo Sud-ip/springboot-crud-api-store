@@ -42,5 +42,5 @@ public class Product {
     private Integer stockQuantity;
 
     @OneToMany(mappedBy = "product")
-    private List<orderItem> orderItems;
+    private List<OrderItem> orderItems;
 }

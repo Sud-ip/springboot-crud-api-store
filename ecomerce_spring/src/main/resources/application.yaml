@@ -10,10 +10,10 @@ spring:
 
 
 #hibernate orm configuration
-    jpa:
+  jpa:
+    hibernate:
+     ddl-auto: update
+    show-sql: true
+    properties:
      hibernate:
-      ddl-auto: update
-     show-sql: true
-     properties:
-       hibernate:
-        format-sql: true
+      format_sql: true

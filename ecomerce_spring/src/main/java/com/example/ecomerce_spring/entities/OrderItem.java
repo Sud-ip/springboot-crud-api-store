@@ -1,5 +1,6 @@
 package com.example.ecomerce_spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class orderItem {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,7 @@ public class orderItem {
     @Column(name = "price_at_purchase",nullable = false)
     private BigDecimal priceAtPurchase;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "order_id",nullable = false)
     private Order order;
